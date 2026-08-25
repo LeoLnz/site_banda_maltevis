@@ -1,0 +1,282 @@
+
+:root {
+  --bg-void: #0b0906;
+  --bg-panel: #14100c;
+  --ink: #e7e1d2;
+  --ink-dim: #8f887a;
+  --blood: #8a2323;
+  --blood-bright: #b52e2e;
+  --rust: #c17a34;
+  --line: #2a241d;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-void);
+  color: var(--ink);
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--rust);
+  outline-offset: 3px;
+}
+
+/* ---------- NAVBAR ---------- */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 84px;
+  background-color: var(--bg-void);
+  border-bottom: 1px solid var(--blood);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+.logo-container {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo-image {
+  height: 130px;
+  width: auto;
+  filter: drop-shadow(0 2px 10px rgb(255, 0, 0));
+}
+
+.hamburger-menu {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 20px;
+  min-width: 170px;
+  background-color: var(--bg-panel);
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--blood-bright);
+  display: flex;
+  flex-direction: column;
+  padding: 6px 0;
+  z-index: 1001;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+}
+
+.dropdown-menu a {
+  color: var(--ink-dim);
+  text-decoration: none;
+  padding: 12px 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.dropdown-menu a:hover {
+  color: var(--ink);
+  background-color: rgba(181, 46, 46, 0.12);
+}
+
+/* ---------- LAYOUT ---------- */
+
+.main-content {
+  padding-top: 84px;
+}
+
+.section {
+  position: relative;
+  padding: 100px 40px 80px;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.section h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.6rem;
+  letter-spacing: 0.03em;
+  color: var(--ink);
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 36px;
+}
+
+.section-index {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9rem;
+  color: var(--rust);
+  letter-spacing: 0.1em;
+}
+
+/* torn paper divider, the signature element */
+.torn-divider {
+  height: 18px;
+  margin-top: 70px;
+  background: var(--blood);
+  clip-path: polygon(
+    0% 0%, 4% 100%, 9% 20%, 14% 100%, 19% 15%, 24% 100%,
+    29% 25%, 34% 100%, 39% 10%, 44% 100%, 49% 20%, 54% 100%,
+    59% 15%, 64% 100%, 69% 25%, 74% 100%, 79% 10%, 84% 100%,
+    89% 20%, 94% 100%, 100% 0%
+  );
+  opacity: 0.85;
+}
+
+/* ---------- HERO ---------- */
+
+.hero {
+  padding-top: 140px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--ink);
+  max-width: 640px;
+}
+
+/* ---------- SETLIST (track listing) ---------- */
+
+.track-list {
+  list-style: none;
+}
+
+.track-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.track-num {
+  font-family: 'IBM Plex Mono', monospace;
+  color: var(--rust);
+  font-size: 0.9rem;
+  min-width: 24px;
+}
+
+.track-name {
+  font-size: 1.1rem;
+  letter-spacing: 0.01em;
+}
+
+/* ---------- AGENDA (tour dates) ---------- */
+
+.date-list {
+  list-style: none;
+}
+
+.date-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.date-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 56px;
+  color: var(--ink);
+}
+
+.date-day {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  line-height: 1;
+  color: var(--blood-bright);
+}
+
+.date-month {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-dim);
+  text-transform: uppercase;
+}
+
+.date-venue {
+  font-size: 1rem;
+  color: var(--ink);
+}
+
+/* ---------- CONTATO ---------- */
+
+.contato {
+  padding-bottom: 140px;
+}
+
+.contact-stamp {
+  display: inline-block;
+  border: 1px solid var(--blood-bright);
+  color: var(--ink);
+  text-decoration: none;
+  padding: 14px 28px;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.contact-stamp:hover {
+  background-color: var(--blood-bright);
+  color: var(--bg-void);
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 600px) {
+  .navbar {
+    height: 68px;
+  }
+  .navbar-logo-image {
+    height: 90px;
+  }
+  .main-content {
+    padding-top: 68px;
+  }
+  .section {
+    padding: 70px 24px 60px;
+  }
+  .section h2 {
+    font-size: 2rem;
+  }
+}

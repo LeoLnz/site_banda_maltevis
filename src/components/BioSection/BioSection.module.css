@@ -1,0 +1,20 @@
+.eyebrow {
+  display: block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 16px;
+}
+
+.text {
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+@media (min-width: 768px) {
+  .eyebrow { font-size: 0.8rem; }
+  .text { font-size: 1.1rem; }
+}

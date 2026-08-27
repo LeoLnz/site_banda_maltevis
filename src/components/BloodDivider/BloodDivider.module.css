@@ -1,0 +1,15 @@
+.wrapper {
+  width: 100%;
+  line-height: 0;
+  background-color: var(--bg-void);
+}
+
+.svg {
+  width: 100%;
+  height: 60px;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .svg { height: 90px; }
+}

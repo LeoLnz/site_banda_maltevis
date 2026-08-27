@@ -1,0 +1,84 @@
+.hero {
+  position: relative;
+  height: 90vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  padding: 0 24px;
+  max-width: 640px;
+  text-align: center;
+}
+
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--ink-dim);
+  background: transparent;
+  color: var(--ink);
+  font-size: 1.8rem;
+  cursor: pointer;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.navButton:hover {
+  border-color: var(--blood-bright);
+  color: var(--blood-bright);
+}
+
+.navButtonPrev { left: 16px; }
+.navButtonNext { right: 16px; }
+
+.dots {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 3;
+}
+
+.dot {
+  width: 9px;
+  height: 5px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background-color: rgba(231, 225, 210, 0.35);
+  cursor: pointer;
+}
+
+.dotActive {
+  background-color: var(--blood-bright);
+}
+
+@media (min-width: 768px) {
+  .navButton {
+    width: 48px;
+    height: 48px;
+    font-size: 2.2rem;
+  }
+}

@@ -114,12 +114,17 @@
     padding: 16px 40px;
   }
 
+  .logoGroup {
+    gap: 60px;
+  }
+
   .logo {
-    width: 90px;
+    top: 9px;
+    width: 80px;
   }
 
   .logoImage {
-    height: 130px;
+    height: 70px;
   }
 
   .socialIconDesktop {

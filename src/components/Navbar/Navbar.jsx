@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Cross as Hamburger } from 'hamburger-react';
 
 import styles from './Navbar.module.css';
-import fotoBanda from '../../assets/foto-banda-sf.png';
+import fotoBanda from '../../assets/MALTEVIS_logo_vector.svg';
 
 const NAV_LEFT = [
   { href: '#sobre', label: 'Sobre' },
@@ -15,8 +15,8 @@ const NAV_RIGHT = [
 ];
 
 const SOCIAL_LINKS = [
-  { href: 'https://youtube.com/bandamaltevis', label: 'YouTube', icon: 'youtube' },
-  { href: 'https://instagram.com/maltevis', label: 'Instagram', icon: 'instagram' },
+  { href: 'https://youtube.com/@bandamaltevis?si=LFaHJujwcf5udDqZ', label: 'YouTube', icon: 'youtube' },
+  { href: 'https://www.instagram.com/banda_maltevis?igsi=YnIwaGZ0bW10aDhm', label: 'Instagram', icon: 'instagram' },
 ];
 
 function InstagramIcon() {

@@ -4,7 +4,7 @@ import styles from './HeroCarousel.module.css';
 // 1. Importando as imagens diretamente da pasta assets
 import smoke from '../../assets/igorcarrossel.jpg';
 import stageLights from '../../assets/educarrossel.jpg';
-import shadowCrowd from '../../assets/todoscarrossel.jpg';
+import shadowCrowd from '../../assets/Carrosseltodoscor.png';
 
 // 2. Usando as variáveis importadas em vez de strings de texto
 const SLIDES = [

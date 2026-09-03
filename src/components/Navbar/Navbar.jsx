@@ -5,13 +5,15 @@ import styles from './Navbar.module.css';
 import fotoBanda from '../../assets/MALTEVIS_logo_vector.svg';
 
 const NAV_LEFT = [
-  { href: '#sobre', label: 'Sobre' },
-  { href: '#musicas', label: 'Músicas' },
+  { href: 'sobre', label: 'Sobre' },
+  { href: 'musicas', label: 'Músicas' },
 ];
 
 const NAV_RIGHT = [
-  { href: '#setlist', label: 'Setlist' },
-  { href: '#contato', label: 'Contato' },
+  { href: 'setlist', label: 'Setlist' },
+  { href: 'contato', label: 'Contato' },
+  { href: 'integrantes', label: 'Integrantes' },
+
 ];
 
 const SOCIAL_LINKS = [

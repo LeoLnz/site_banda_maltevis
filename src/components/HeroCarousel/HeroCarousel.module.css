@@ -1,3 +1,84 @@
+.eyebrow {
+  display: inline-block;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 18px;
+}
+
+.heroTitle {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3.2rem, 16vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+  margin-bottom: 18px;
+}
+
+.heroTagline {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink-dim);
+  max-width: 420px;
+  margin: 0 auto 32px;
+}
+
+.heroCtas {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+}
+
+.ctaPrimary,
+.ctaSecondary {
+  display: inline-block;
+  padding: 14px 32px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  min-width: 220px;
+  text-align: center;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.ctaPrimary {
+  background-color: var(--blood-bright);
+  color: var(--ink);
+  border: 1px solid var(--blood-bright);
+}
+
+.ctaPrimary:hover {
+  background-color: transparent;
+  color: var(--blood-bright);
+}
+
+.ctaSecondary {
+  background-color: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink-dim);
+}
+
+.ctaSecondary:hover {
+  border-color: var(--blood-bright);
+  color: var(--blood-bright);
+}
+
+@media (min-width: 480px) {
+  .heroCtas {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+
+
+
 .hero {
   position: relative;
   height: 100vh;
@@ -81,4 +162,4 @@
     height: 48px;
     font-size: 2.2rem;
   }
-}
+} 

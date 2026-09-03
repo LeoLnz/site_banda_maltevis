@@ -1,21 +1,17 @@
 import { useState, useEffect, useCallback } from 'react';
 import styles from './HeroCarousel.module.css';
 
-// 1. Importando as imagens diretamente da pasta assets
 import smoke from '../../assets/igorcarrossel.jpg';
 import stageLights from '../../assets/educarrossel.jpg';
 import shadowCrowd from '../../assets/Carrosseltodoscor.png';
 
-// 2. Usando as variáveis importadas em vez de strings de texto
-const SLIDES = [
-  smoke,
-  stageLights,
-  shadowCrowd,
-];
-
+const SLIDES = [smoke, stageLights, shadowCrowd];
 const AUTO_ROTATE_MS = 6000;
 
-function HeroCarousel({ children }) {
+// TODO: trocar por link interno (#musicas) quando a seção de música existir
+const YOUTUBE_URL = 'https://youtube.com/@bandamaltevis?si=LFaHJujwcf5udDqZ';
+
+function HeroCarousel() {
   const [index, setIndex] = useState(0);
 
   const goTo = useCallback((i) => {
@@ -33,7 +29,6 @@ function HeroCarousel({ children }) {
     <section
       id="home"
       className={styles.hero}
-      // O Vite agora vai substituir o SLIDES[index] pelo caminho real gerado na compilação
       style={{ backgroundImage: `url(${SLIDES[index]})` }}
     >
       <div className={styles.overlay} />
@@ -53,12 +48,32 @@ function HeroCarousel({ children }) {
         ›
       </button>
 
-      <div className={styles.content}>{children}</div>
+      <div className={styles.content}>
+        <span className={styles.eyebrow}>Rock Alternativo / Nu Metal</span>
+        <h1 className={styles.heroTagline}>Banda Maltevis</h1>
+        <p className={styles.heroTagline}>
+          Direto do palco pra você.
+        </p>
+
+        <div className={styles.heroCtas}>
+          <a
+            href={YOUTUBE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.ctaPrimary}
+          >
+            Assistir no YouTube
+          </a>
+          <a href="#agenda" className={styles.ctaSecondary}>
+            Ver agenda
+          </a>
+        </div>
+      </div>
 
       <div className={styles.dots}>
         {SLIDES.map((slide, i) => (
           <button
-            key={i} // Melhor usar o índice como key aqui para evitar conflitos de nome
+            key={i}
             className={`${styles.dot} ${i === index ? styles.dotActive : ''}`}
             onClick={() => goTo(i)}
             aria-label={`Ir para slide ${i + 1}`}

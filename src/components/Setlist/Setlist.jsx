@@ -5,7 +5,7 @@ const TRACKS = [
   { id: '01', title: 'Untilted', href: '/letras/untilted' },
   { id: '02', title: 'Thunderstorm', href: '/letras/thunderstorm' },
   { id: '03', title: 'Remember', href: '/letras/remember' },
-  { id: '04', title: 'Cerrado', href: '/letras/cerrado' },
+ //{ id: '04', title: 'Cerrado', href: '/letras/cerrado' },
   { id: '05', title: 'Shadows', href: '/letras/shadows' },
 ];
 

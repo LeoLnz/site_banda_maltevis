@@ -1,0 +1,29 @@
+COLOQUE AQUI OS ÁUDIOS DAS MÚSICAS (formato .mp3)
+
+Os nomes dos arquivos precisam ser iguais aos do campo "audio" em src/data/tracks.js:
+
+  untilted.mp3
+  thunderstorm.mp3
+  remember.mp3
+  shadows.mp3
+
+Para usar outro nome, mude o campo "audio" da música em src/data/tracks.js.
+Dica: mp3 em 128-192 kbps deixa o site rápido no celular.
+Músicas sem arquivo aparecem como "em breve" no player.
+
+COMO FUNCIONA O PLAYER
+- Ao dar play, a agulha desce pela direita e o áudio só começa quando ela encosta no disco.
+- A faixa vira destaque no topo, com a letra ao lado do disco. Clique na faixa em destaque para abrir o menu com as outras.
+- Pausar ou terminar levanta a agulha e para o disco (o layout continua expandido).
+
+SINCRONIZAR A LETRA (campo "lrc" de cada música em src/data/tracks.js)
+Uma linha por verso, no formato [minutos:segundos.centésimos] texto:
+
+  [0:12.50] Sometimes a rain
+  [0:15.20] Seems to be a storm
+  [0:19.00]
+  [0:21.40] But in the middle of thunders
+
+Linha só com o tempo (sem texto) = espaço entre estrofes.
+Sem "lrc", a letra completa rola proporcionalmente ao andamento da música.
+Clicar numa linha sincronizada pula para aquele momento.

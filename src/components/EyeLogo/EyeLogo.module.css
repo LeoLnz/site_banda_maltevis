@@ -1,0 +1,39 @@
+.logo {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.eye {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.glow {
+  filter: drop-shadow(0 0 5px rgba(230, 0, 0, 0.85));
+  animation: breathe 3.4s ease-in-out infinite;
+}
+
+.blink {
+  animation: blink 0.3s ease-in-out;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  45% {
+    transform: scaleY(0.05);
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 4px rgba(230, 0, 0, 0.7));
+  }
+  50% {
+    filter: drop-shadow(0 0 14px rgba(255, 30, 30, 1));
+  }
+}

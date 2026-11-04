@@ -1,0 +1,85 @@
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  overflow: hidden;
+}
+
+.lidTop,
+.lidBottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50.2%;
+  background: #050403;
+  transition: transform 1s var(--ease);
+}
+.lidTop {
+  top: 0;
+}
+.lidBottom {
+  bottom: 0;
+}
+
+/* borda irregular, como cílios rasgados */
+.lidTop::after,
+.lidBottom::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 16px;
+  background: #050403;
+}
+.lidTop::after {
+  top: 100%;
+  clip-path: polygon(0 0, 100% 0, 97% 55%, 92% 15%, 86% 85%, 80% 30%, 73% 70%, 66% 20%, 58% 90%, 50% 35%, 43% 75%, 35% 25%, 28% 80%, 20% 40%, 13% 70%, 7% 20%, 3% 60%);
+}
+.lidBottom::before {
+  bottom: 100%;
+  clip-path: polygon(0 100%, 100% 100%, 96% 40%, 90% 80%, 84% 20%, 77% 65%, 70% 15%, 62% 75%, 55% 30%, 47% 85%, 40% 25%, 32% 70%, 24% 20%, 17% 75%, 10% 35%, 4% 70%);
+}
+
+.eye {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: clamp(70px, 12vw, 120px);
+  width: auto;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  filter: drop-shadow(0 0 16px rgba(230, 0, 0, 0.9));
+  animation: eyeIn 0.6s var(--ease) both, eyeBlink 0.32s ease-in-out 1.15s both;
+}
+
+.open .lidTop {
+  transform: translateY(-101%);
+}
+.open .lidBottom {
+  transform: translateY(101%);
+}
+.open .eye {
+  opacity: 0;
+  transition: opacity 0.25s;
+  animation: none;
+}
+
+@keyframes eyeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+@keyframes eyeBlink {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scaleY(1);
+  }
+  45% {
+    transform: translate(-50%, -50%) scaleY(0.06);
+  }
+}

@@ -1,25 +1,51 @@
-import React from 'react';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { useCallback, useEffect, useState } from 'react';
+import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Home from './Home';
-import Untilted from './Untilted';
-import Thunderstorm from './Thunderstorm';
-import Shadows from './Shadows';
-import Remember from './Remember';
-// TODO: criar e importar Remember.jsx, Cerrado.jsx e Shadows.jsx
-// (o Setlist já linka pra /letras/remember, /letras/cerrado, /letras/shadows)
+import Letra from './Letra';
+import Preloader from './components/Preloader/Preloader';
+import { markIntroDone, shouldPlayIntro } from './lib/motion';
+
+function AppRoutes() {
+  const location = useLocation();
+
+  // toda página nova começa no topo (a não ser que peça uma seção)
+  useEffect(() => {
+    if (!location.state?.scrollTo) window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [location.pathname, location.state]);
+
+  return (
+    <div key={location.pathname} className="page">
+      <Routes location={location}>
+        <Route path="/" element={<Home />} />
+        <Route path="/letras/:slug" element={<Letra />} />
+        <Route path="*" element={<Home />} />
+      </Routes>
+    </div>
+  );
+}
 
 function App() {
+  const [intro, setIntro] = useState(shouldPlayIntro);
+  const endIntro = useCallback(() => setIntro(false), []);
+
+  useEffect(() => {
+    if (!intro) markIntroDone();
+  }, [intro]);
+
   return (
     <HashRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/letras/untilted" element={<Untilted />} />
-        <Route path="/letras/thunderstorm" element={<Thunderstorm />} />
-        <Route path="/letras/shadows" element={<Shadows />} />
-        <Route path="/letras/remember" element={<Remember />} />
-        {/* <Route path="/letras/cerrado" element={<Cerrado />} /> */}
-    
-      </Routes>
+      <a
+        className="skip"
+        href="#/"
+        onClick={(e) => {
+          e.preventDefault();
+          document.getElementById('main')?.focus();
+        }}
+      >
+        Pular para o conteúdo
+      </a>
+      {intro && <Preloader onDone={endIntro} />}
+      <AppRoutes />
     </HashRouter>
   );
 }

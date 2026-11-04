@@ -1,45 +1,97 @@
-.setlist {
-  max-width: 780px;
-  margin: 0 auto;
-  padding: 70px 24px;
+.head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: clamp(28px, 4vw, 48px);
 }
-
-.heading {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 2.2rem;
-  color: var(--ink);
-  margin-bottom: 24px;
+.lead {
+  font-size: 0.9rem;
+  color: var(--ink-dim);
 }
 
 .list {
   list-style: none;
+  border-top: 1px solid var(--line);
 }
 
 .row {
-  display: flex;
-  align-items: baseline;
-  gap: 16px;
-  padding: 16px 8px;
+  position: relative;
+  display: grid;
+  grid-template-columns: clamp(48px, 8vw, 96px) 1fr auto;
+  align-items: center;
+  gap: 8px;
+  padding: clamp(18px, 2.6vw, 30px) clamp(8px, 1.5vw, 20px);
   border-bottom: 1px solid var(--line);
-  transition: background-color 0.2s ease, padding-left 0.2s ease;
+  overflow: hidden;
+  isolation: isolate;
+  transition: color 0.3s;
 }
-
-.row:hover {
-  background-color: rgba(138, 35, 35, 0.1);
-  padding-left: 16px;
+/* tinta vermelha entra da esquerda no hover */
+.row::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, var(--blood) 0%, rgba(138, 35, 35, 0.5) 60%, rgba(138, 35, 35, 0.12) 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s var(--ease);
+}
+.row:hover::before,
+.row:focus-visible::before {
+  transform: scaleX(1);
 }
 
 .number {
-  font-family: 'IBM Plex Mono', monospace;
-  color: var(--blood-bright);
-  min-width: 26px;
+  font-size: 0.9rem;
+  color: var(--rust);
+  transition: color 0.3s;
 }
-
 .title {
-  color: var(--ink);
-  font-size: 1.05rem;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 6vw, 4.2rem);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: var(--ink-bright);
+  transition: transform 0.55s var(--ease);
+}
+.row:hover .title,
+.row:focus-visible .title {
+  transform: translateX(14px);
+}
+.row:hover .number {
+  color: var(--ink-bright);
 }
 
-@media (min-width: 768px) {
-  .heading { font-size: 2.6rem; }
+.go {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  transition: color 0.3s;
+}
+.go svg {
+  transition: transform 0.45s var(--ease);
+}
+.row:hover .go,
+.row:focus-visible .go {
+  color: var(--ink-bright);
+}
+.row:hover .go svg {
+  transform: translateX(6px);
+}
+
+.yt {
+  margin-top: clamp(28px, 4vw, 44px);
+}
+
+@media (max-width: 560px) {
+  .go span {
+    display: none;
+  }
 }

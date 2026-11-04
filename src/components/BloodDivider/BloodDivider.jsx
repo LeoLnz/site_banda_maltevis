@@ -1,14 +1,15 @@
+import { useRef } from 'react';
+import { useInView } from '../../hooks/useInView';
 import styles from './BloodDivider.module.css';
 
+/** O sangue escorre quando o divisor entra na tela. */
 function BloodDivider() {
+  const ref = useRef(null);
+  const seen = useInView(ref, { threshold: 0.3, rootMargin: '0px' });
+
   return (
-    <div className={styles.wrapper} aria-hidden="true">
-      <svg
-        className={styles.svg}
-        viewBox="0 0 1440 90"
-        preserveAspectRatio="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+    <div ref={ref} className={`${styles.wrapper} ${seen ? styles.in : ''}`} aria-hidden="true">
+      <svg className={styles.svg} viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="bloodGradient" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#8a2323" />
